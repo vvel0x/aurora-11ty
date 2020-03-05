@@ -1,0 +1,46 @@
+{% if page.url == "/" %}
+<nav class="navbar is-transparent"
+     role="navigation" 
+     aria-label="main navigation">
+{% else %}
+<nav class="navbar is-transparent nav-border"
+     role="navigation" 
+     aria-label="main navigation">
+{% endif %}
+  <div class="container">
+    <div class="navbar-brand">
+
+      {% if site.logo %}
+      <a class="navbar-item" {% if page.url == "/" %}aria-current="page"{% endif %} href="{{ site.url }}">
+        <img src="{{ site.logo }}" alt="{{ site.title }}" width="112" height="28">
+      </a>
+      {% endif %}
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    
+    {% if site.navigation %}
+    <div id="navbar" class="navbar-menu">
+      <div class="navbar-start">
+        {% for item in site.navigation %}
+        <a class="navbar-item" {% if page.url == item.url %}aria-current="page"{% endif %} href="{{ item.url }}">
+          {{ item.label }}
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="navbar-end">
+        <a href="" class="navbar-item">
+          <span class="icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </div>      
+</nav>

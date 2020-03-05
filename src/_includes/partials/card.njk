@@ -1,0 +1,29 @@
+{% macro card(post) %}
+<article class="column is-4 post_cards">
+  <div class="card">
+    {% if post.feature_image %}
+    <div class="card-image">
+      <figure class="image is-2by1 featured"
+        style="background: url('{{ post.feature_image }}'); background-size: cover; border-top-right-radius: inherit; border-top-left-radius: inherit;">
+      </figure>
+    </div>
+    {% endif %}
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <div class="is-size-7">
+            <a href="/tag/{{ post.primary_tag.slug }}" class='is-uppercase is-size-7'>{{ post.primary_tag.name }}</a>
+            <div class="is-pulled-right">
+              {{ post.reading_time }} MIN READ
+            </div>
+          </div>
+          <a href="{{ post.url }}" class="title is-4">{{ post.title }}</a>
+        </div>
+      </div>
+      <div class="content">
+        {{ post.excerpt }}
+      </div>
+    </div>
+  </div>
+</article>   
+{% endmacro %}

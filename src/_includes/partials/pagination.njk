@@ -1,0 +1,23 @@
+{% if pagination.previousPageHref or pagination.nextPageHref %}
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile">
+            {% if page.permalink != pagination.previousPageHref %}
+                <div class="column">
+                    <a href="{{ pagination.previousPageHref }}">
+                        <i class="fas fa-arrow-left"></i> Newer posts
+                    </a>
+                </div>
+            {% endif %}
+            {% if page.permalink != pagination.nextPageHref %}
+                <div class="column has-text-right">
+                    <a href="{{ pagination.nextPageHref }}">
+                    Older posts <i class="fas fa-arrow-right"></i>
+                </a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </section>
+
+{% endif %}

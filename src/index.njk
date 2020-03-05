@@ -1,0 +1,28 @@
+---
+pagination:
+  data: collections.posts
+  size: 7
+  alias: posts
+---
+
+{% extends 'layouts/default.njk' %}
+{% from "partials/card.njk" import card %}
+
+{% set title = "Posts" %}
+
+{% block content %}
+	<script>{% include "js/cards.js" %}</script>
+	
+    <section class="section is-fullheight">
+  		<div class="container">
+    		<div class="columns is-multiline">
+
+	        {% for post in posts %}
+	            {{ card(post) }}
+	        {% endfor %}
+
+	    	</div>
+	  	</div>
+	  	{% include "partials/pagination.njk" %}
+	</section>   
+{% endblock%}

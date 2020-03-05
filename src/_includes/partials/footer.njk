@@ -1,0 +1,36 @@
+<!-- FOOTER -->
+<section>
+  <nav class='navbar is-transparent is-paddingless level'>
+    <div class="container">
+      <div class="navbar-start level-left">
+        <a class='navbar-item has-text-centered' href="https://feedly.com/i/subscription/feed/{{ site.url }}/rss/">
+          <span class="icon">
+            <i class="fas fa-rss"></i>
+          </span>
+        </a>
+        {% for doc in collections.docs %}
+            <a class='navbar-item has-text-centered' href="{{ doc.url }}">{{ doc.meta_title if doc.meta_title else doc.title }}</a>
+        {% endfor %}
+      </div>
+      <div class="navbar-end level-right">        
+        {% if site.facebook %}
+        <a href="https://www.facebook.com/{{ site.facebook }}" target="_blank" class="navbar-item has-text-centered">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+        </a>
+        {% endif %}
+        {% if site.twitter %}
+        <a href="https://twitter.com/{{ site.twitter | replace("@", "") }}" target="_blank" class="navbar-item has-text-centered">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</section>
+<footer class="footer">
+    <p class="has-text-centered">{{ site.title }} &copy; 2020</p>
+</footer>
